@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import DefaultHoc from "../Layouts/Default.Hoc";
 
 // -------- Components ------------
-import EntertainmentCardComponent from "../Components/Entertainment/EntertainmentCardComponent";
+import EntertainmentCardSlider from "../Components/Entertainment/EntertainmentCard.Component";
 import HeroCarousel from "../Components/HeroCarousel/HeroCarousel.Component";
 import PosterSlider from "../Components/PosterSliders/PosterSlider.Component";
 
@@ -23,15 +23,15 @@ const HomePage = () => {
         <h1 className="text-2xl font-bold text-gray-800 sm:ml-3 ml-0 my-3">
           The Best Entertainment
         </h1>
-        <EntertainmentCardComponent />
+        <EntertainmentCardSlider />
       </div>
 
       {/* ---------- Poster Sliders for Recommended Movies ------------ */}
       <div className="container mx-auto px-4 md:px-12 my-8">
         <PosterSlider
           title="Recommended Movies"
-          subject="List of Recommended Movies"
-          posters={recommandedMovies}
+          subtitle="List of Recommended Movies"
+          poster={recommandedMovies}
           isDark={false}
         />
       </div>
@@ -44,8 +44,8 @@ const HomePage = () => {
           </div>
           <PosterSlider
             title="Premiere Movies"
-            subject="Brand new premiere movies"
-            posters={premiere}
+            subtitle="Brand new premiere movies"
+            poster={premiere}
             isDark={true}
           />
         </div>
@@ -55,8 +55,8 @@ const HomePage = () => {
       <div className="container mx-auto px-4 md:px-12 my-8 flex flex-col gap-3">
         <PosterSlider
           title="Online Streaming Events"
-          subject="Online Streaming Events"
-          posters={stream}
+          subtitle="Online Streaming Events"
+          poster={stream}
           isDark={false}
         />
       </div>

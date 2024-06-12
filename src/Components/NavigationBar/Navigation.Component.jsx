@@ -25,13 +25,19 @@ function NavSm() {
 
 function NavMd() {
   return (
-    <div className="w-full flex items-center gap-3 bg-white px-3 py-1 rounded-md">
-      <BiSearchAlt />
-      <input
-        type="search"
-        className="w-full bg-transparent border-none focus:outline-none"
-      />
-    </div>
+    <>
+      <div className="w-10 h-10">
+        <img src="" alt="logo" className="w-full h-full" />
+      </div>
+
+      <div className="w-full flex items-center gap-3 bg-white px-3 py-1 rounded-md">
+        <BiSearchAlt />
+        <input
+          type="search"
+          className="w-full bg-transparent border-none focus:outline-none"
+        />
+      </div>
+    </>
   );
 }
 
@@ -49,7 +55,7 @@ function NavLg() {
             <input
               type="search"
               className="w-full bg-transparent border-none focus: outline-none"
-              placeholder="Search for movies , events , plays , sports and activities"
+              placeholder="Search for Movies,Events,Plays,Sports and Activities"
             />
           </div>
         </div>
@@ -59,7 +65,27 @@ function NavLg() {
 }
 
 const NavigationBar = () => {
-  return <div>Navigation Bar</div>;
+  return (
+    <nav className="bg-darkBackground-700 px-4 py-3">
+      {/* -------- Small Screen size Navigation Bar ---------- */}
+      {/* <div className="sm:flex md:hidden lg:hidden">
+        <NavSm />
+      </div> */}
+      <div className="md:hidden">
+        <NavSm />
+      </div>
+
+      {/* -------- Medium Screen size Navigation Bar ------------ */}
+      <div className="hidden md:flex lg:hidden">
+        <NavMd />
+      </div>
+
+      {/* -------- Large Screen size Navigation Bar ---------- */}
+      <div className="hidden md:hidden lg:flex">
+        <NavLg />
+      </div>
+    </nav>
+  );
 };
 
 export default NavigationBar;
