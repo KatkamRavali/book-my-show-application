@@ -4,8 +4,29 @@ import Slider from "react-slick";
 import Poster from "../Poster/Poster.Component";
 
 const PosterSlider = (props) => {
-  const { poster, title, subtitle, isDark } = props;
-  const settings = {};
+  const { poster, title, subtitle, isDark, config } = props;
+  const settings = {
+    infinte: true,
+    speed: 500,
+    slidesToShow: 5,
+    sildesToScroll: 4,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          sildesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          sildesToScroll: 1,
+        },
+      },
+    ],
+  };
 
   return (
     <>
@@ -23,11 +44,20 @@ const PosterSlider = (props) => {
         </p>
       </div>
 
-      <Slider {...settings}>
-        {poster.map((each) => (
-          <Poster {...each} isDark={isDark} />
-        ))}
-      </Slider>
+      {config && (
+        <Slider {...config}>
+          {poster.map((each, index) => (
+            <Poster {...each} isDark={isDark} key={index} />
+          ))}
+        </Slider>
+      )}
+      {!config && (
+        <Slider {...settings}>
+          {poster.map((each, index) => (
+            <Poster {...each} isDark={isDark} key={index} />
+          ))}
+        </Slider>
+      )}
     </>
   );
 };

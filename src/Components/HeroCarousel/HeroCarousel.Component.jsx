@@ -57,7 +57,7 @@ const HeroCarousel = () => {
     autoplaySpeed: 2000,
     cssEase: "linear",
     nextArrow: <NextArrow />,
-    prevArrow: <PreviousArrow />,
+    previousArrow: <PreviousArrow />,
   };
 
   // ---------- Settings for larger and smaller screen size  ----------
@@ -73,7 +73,7 @@ const HeroCarousel = () => {
     autoplaySpeed: 2000,
     cssEase: "linear",
     nextArrow: <NextArrow />,
-    prevArrow: <PreviousArrow />,
+    previousArrow: <PreviousArrow />,
   };
 
   return (
@@ -81,8 +81,8 @@ const HeroCarousel = () => {
       {/* ---------- Small Screen size --------- */}
       <div className="lg:hidden">
         <HeroSlider {...settings}>
-          {images.map((image) => {
-            <div className="w-full h-56 md:h-80 py-3">
+          {images.map((image, index) => {
+            <div className="w-full h-56 md:h-80 py-3" key={index}>
               <img
                 src={`https://image.tmdb.org/t/p/original${images.backdrop_path}`}
                 alt="Hero-Banner"
@@ -96,8 +96,8 @@ const HeroCarousel = () => {
       {/* --------- Large Screen Size --------- */}
       <div className="hidden lg:block">
         <HeroSlider {...settingsLg}>
-          {images.map((image) => {
-            <div className="w-full h-96 px-2 py-3">
+          {images.map((image, index) => {
+            <div className="w-full h-96 px-2 py-3" key={index}>
               <img
                 src={`https://image.tmdb.org/t/p/original${images.backdrop_path}`}
                 alt="Hero-Banner"

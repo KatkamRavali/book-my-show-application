@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+
+// ------ Import Axios -----
+import axios from "axios";
 
 // -------- Default Layout Page ---------
 import DefaultHoc from "../Layouts/Default.Hoc";
@@ -12,6 +15,43 @@ const HomePage = () => {
   const [recommandedMovies, setRecommandedMovies] = useState([]);
   const [stream, setStream] = useState([]);
   const [premiere, setPremiere] = useState([]);
+
+  //  -------- Recommended movies ---------
+  useEffect(() => {
+    const requestTopRatedMovies = async () => {
+      const getTopRatedMovies = await axios.get(
+        // "https://api.themoviedb.org/3/movie/top_rated?api_key=8e720c7c93d8a30423a89863d7a66e6c"
+        "/movie/top_rated"
+      );
+      setRecommandedMovies(getTopRatedMovies.data.results);
+    };
+    requestTopRatedMovies();
+  }, []);
+
+  // -------- Premiere Movies ----------
+  useEffect(() => {
+    const requestPopularMovies = async () => {
+      const getPopularMovies = await axios.get(
+        // "https://api.themoviedb.org/3/movie/popular?api_key=8e720c7c93d8a30423a89863d7a66e6c"
+        "/movie/popular"
+      );
+      setPremiere(getPopularMovies.data.results);
+    };
+    requestPopularMovies();
+  }, []);
+
+  //  -------- Stream Movies -------
+  useEffect(() => {
+    const requestUpcomingMovies = async () => {
+      const getUpcomingMovies = await axios.get(
+        // ------ [First Method] -------
+        // "https://api.themoviedb.org/3/movie/upcoming?api_key=8e720c7c93d8a30423a89863d7a66e6c"
+        "/movie/upcoming"
+      );
+      setStream(getUpcomingMovies.data.results);
+    };
+    requestUpcomingMovies();
+  }, []);
 
   return (
     <>
