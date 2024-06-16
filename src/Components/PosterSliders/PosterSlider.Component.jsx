@@ -1,6 +1,9 @@
 import React from "react";
 
+// ---- Import Slider -----
 import Slider from "react-slick";
+
+// ---- Import Poster Component ------
 import Poster from "../Poster/Poster.Component";
 
 const PosterSlider = (props) => {

@@ -1,4 +1,6 @@
 import React from "react";
+
+// ------ Import Movie Navigation Bar ---------
 import MovieNavBar from "../Components/NavigationBar/MovieNavBar.Component";
 
 const MovieHoc =

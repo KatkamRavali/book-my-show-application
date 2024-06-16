@@ -1,4 +1,6 @@
 import React from "react";
+
+// --- Import Navigation Bar Component -----
 import NavigationBar from "../Components/NavigationBar/Navigation.Component";
 
 const DefaultHoc =

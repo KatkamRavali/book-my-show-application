@@ -1,23 +1,41 @@
 import React, { useContext, useEffect, useState } from "react";
+
+// ----- Import Movie Layout Page -------
 import MovieHoc from "../Layouts/Movie.Hoc";
+
+// -------- Import Params ---------
 import { useParams } from "react-router-dom";
+
+// ----- Import Axios -------
 import axios from "axios";
+
+// ---- Import Movie Context -----------
 import { MovieContext } from "../Context/Movie.Context";
+
+// -------- Import Slider -------------
 import Slider from "react-slick";
+
+// ------- Import React Icons -------
 import { FaCcVisa, FaCcApplePay } from "react-icons/fa";
+
+// ------- Import Poster Slider -----------
 import PosterSlider from "../Components/PosterSliders/PosterSlider.Component";
+
+// ----- Import Movie Hero Page ------------
 import MovieHero from "../Components/MovieHero/MovieHero.Component";
+
+// ------- Import Cast Component -------
 import Cast from "../Components/Cast/Cast.Component";
 
 const MoviePage = () => {
   const { id } = useParams();
+  const { movie, setMovie } = useContext(MovieContext);
 
   const [cast, setCast] = useState([]);
   const [similarMovies, setSimilarMovies] = useState([]);
-
   const [recommandedMovies, setRecommandedMovies] = useState([]);
-  const { movie, setMovie } = useContext(MovieContext);
 
+  // -------- Cast -----------
   useEffect(() => {
     const requestCast = async () => {
       const getCast = await axios.get(`/movie/${id}/credits`);
@@ -26,24 +44,27 @@ const MoviePage = () => {
     requestCast();
   }, [id]);
 
+  // ------ Similar Movies -------
   useEffect(() => {
     const requestSimilarMovies = async () => {
       const getSimilarMovies = await axios.get(`/movie/${id}/similar`);
-      setSimilarMovies(getSimilarMovies.data.result);
+      setSimilarMovies(getSimilarMovies.data.results);
     };
     requestSimilarMovies();
   }, [id]);
 
+  // ------- Recommended Movies --------
   useEffect(() => {
     const requestRecommandedMovies = async () => {
       const getRecommandedMovies = await axios.get(
         `/movie/${id}/recommendations`
       );
-      setRecommandedMovies(getRecommandedMovies.data.result);
+      setRecommandedMovies(getRecommandedMovies.data.results);
     };
     requestRecommandedMovies();
   }, [id]);
 
+  // ------ Request Movie ----------
   useEffect(() => {
     const requestMovie = async () => {
       const getMovieDate = await axios.get(`/movie/${id}`);
@@ -55,14 +76,14 @@ const MoviePage = () => {
   const settingsCast = {
     infinte: false,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 5,
     slidesToScroll: 4,
     initialSlide: 0,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 5,
           slidesToScroll: 4,
         },
       },
@@ -88,15 +109,15 @@ const MoviePage = () => {
   const settings = {
     infinte: false,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 5,
     slidesToScroll: 4,
     initialSlide: 0,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 5,
+          slidesToScroll: 4,
         },
       },
       {
@@ -120,8 +141,10 @@ const MoviePage = () => {
 
   return (
     <>
+      {/*  ------------ Movie Hero [Image] -------- */}
       <MovieHero />
 
+      {/* -------- About The Movie [Movie Details] ------- */}
       <div className="my-12 container px-4 lg-ml-20 lg:w-2/1">
         <div className="flex flex-col items-start gap-3">
           <h1 className="text-gray-800 font-bold gap-3 text-2xl">
@@ -134,16 +157,24 @@ const MoviePage = () => {
           <hr />
         </div>
 
+        {/* -------- Offers --------- */}
         <div className="my-8">
           <h2 className="text-gray-800 font-bold text-2xl mb-3">
             Applicable Offers
           </h2>
+
+          {/* ----------- Visa Stream and Film Pass Offer ------ */}
           <div className="flex flex-col gap-3 lg:flex-row">
-            <div className="flex items-start gap-2 bg-yellow-100 p-3 border-yellow-400 border-dashed border-2 rounded-md">
+            {/* ----- Visa Stream Offer  */}
+            <div
+              className="flex items-start gap-2 bg-yellow-100 p-3 border-yellow-400 border-dashed 
+                            border-2 rounded-md"
+            >
+              {/* ----- Icon ---- */}
               <div className="w-8 h-8">
                 <FaCcVisa className="w-full h-full" />
               </div>
-
+              {/* ---- Content ------ */}
               <div className="flex flex-col items-start">
                 <h3 className="text-gray-700 text-xl font-bold">
                   Visa Stream Offer
@@ -154,16 +185,20 @@ const MoviePage = () => {
                 </p>
               </div>
             </div>
-
-            <div className="flex items-start gap-2 bg-yellow-100 p-3 border-yellow-400 border-dashed border-2 rounded-md">
+            {/* ---- Film Pass Offer ---- */}
+            <div
+              className="flex items-start gap-2 bg-yellow-100 p-3 border-yellow-400 border-dashed 
+                            border-2 rounded-md"
+            >
+              {/* ---- Icon ---- */}
               <div className="w-8 h-8">
                 <FaCcApplePay className="w-full h-full" />
               </div>
-
+              {/* ---- Context ---- */}
               <div className="flex flex-col items-start">
                 <h3 className="text-gray-700 text-xl font-bold"> Film Pass </h3>
                 <p className="text-gray-600">
-                  Get 75% off up to INR 200 on all RuPay Card* on BookMyShow
+                  Get 75% off up to INR 200 on all RuPay Card on BookMyShow
                   Stream
                 </p>
               </div>
@@ -175,12 +210,12 @@ const MoviePage = () => {
           <hr />
         </div>
 
-        {/* ------- Recommended Sliders ------- */}
+        {/*---------- Recommended Movie Sliders --------- */}
         <div className="my-8">
           <PosterSlider
             config={settings}
             title="Recommended Movies"
-            posters={recommandedMovies}
+            poster={recommandedMovies}
             isDark={false}
           />
         </div>
@@ -189,17 +224,17 @@ const MoviePage = () => {
           <hr />
         </div>
 
-        {/* ------- Cast Sliders -------- */}
+        {/* ---------- Cast Slider -------- */}
         <div className="my-8">
-          <h2 className="text-gray-800 font-bold text-2xl mb-4">
+          <h2 className="text-gray-800 font-bold text-2xl md-4 py-5">
             Cast and Crew
           </h2>
           <Slider {...settingsCast}>
             {cast.map((castData) => (
               <Cast
                 image={castData.profile_path}
-                castName={movie.original_name}
-                role={movie.character}
+                castName={castData.original_name}
+                role={castData.character}
               />
             ))}
           </Slider>
@@ -212,7 +247,7 @@ const MoviePage = () => {
         <PosterSlider
           config={settings}
           title="BMS XCLUSIVE Movies"
-          posters={recommandedMovies}
+          poster={recommandedMovies}
           isDark={false}
         />
       </div>
