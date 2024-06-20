@@ -7,7 +7,7 @@ import HeroSlider from "react-slick";
 import { NextArrow, PreviousArrow } from "./Arrows.Component";
 
 const HeroCarousel = () => {
-  const [images, setImages] = useState([
+  const [images] = useState([
     {
       adult: false,
       backdrop_path: "/ugS5FVfCI3RV0ZwZtBV3HAV75OX.jpg",
@@ -46,15 +46,13 @@ const HeroCarousel = () => {
 
   // --------- Settings for larger screen size -------
   const settingsLg = {
-    dots: true,
     arrows: true,
     slidesToShow: 1,
     infinite: true,
     speed: 500,
     slideToScroll: 1,
-    slidesToShow: 3,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 4000,
     cssEase: "linear",
     nextArrow: <NextArrow />,
     previousArrow: <PreviousArrow />,
@@ -62,16 +60,11 @@ const HeroCarousel = () => {
 
   // ---------- Settings for larger and smaller screen size  ----------
   const settings = {
-    dots: true,
     arrows: true,
     slidesToShow: 1,
     infinite: true,
     speed: 500,
     slideToScroll: 1,
-    slidesToShow: 3,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    cssEase: "linear",
     nextArrow: <NextArrow />,
     previousArrow: <PreviousArrow />,
   };
@@ -81,7 +74,7 @@ const HeroCarousel = () => {
       {/* ---------- Small Screen size --------- */}
       <div className="lg:hidden">
         <HeroSlider {...settings}>
-          {images.map((image, index) => {
+          {images.map((images, index) => {
             <div className="w-full h-56 md:h-80 py-3" key={index}>
               <img
                 src={`https://image.tmdb.org/t/p/original${images.backdrop_path}`}
@@ -96,7 +89,7 @@ const HeroCarousel = () => {
       {/* --------- Large Screen Size --------- */}
       <div className="hidden lg:block">
         <HeroSlider {...settingsLg}>
-          {images.map((image, index) => {
+          {images.map((images, index) => {
             <div className="w-full h-96 px-2 py-3" key={index}>
               <img
                 src={`https://image.tmdb.org/t/p/original${images.backdrop_path}`}

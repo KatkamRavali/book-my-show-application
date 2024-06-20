@@ -10,7 +10,6 @@ const DefaultHoc =
       <div>
         <NavigationBar />
         <Component {...props} />
-        <div> Footer Part </div>
       </div>
     );
   };

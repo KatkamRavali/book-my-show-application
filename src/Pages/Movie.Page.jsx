@@ -185,6 +185,7 @@ const MoviePage = () => {
                 </p>
               </div>
             </div>
+
             {/* ---- Film Pass Offer ---- */}
             <div
               className="flex items-start gap-2 bg-yellow-100 p-3 border-yellow-400 border-dashed 

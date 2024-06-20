@@ -1,6 +1,6 @@
 import React from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
+import { Description, Dialog, Transition } from "@headlessui/react";
+import { Fragment } from "react";
 
 const Payment = ({ setIsOpen, isOpen, price }) => {
   //   return <div>Payment Component</div>;
@@ -8,7 +8,23 @@ const Payment = ({ setIsOpen, isOpen, price }) => {
     setIsOpen(false);
   };
 
-  const launchRazorPay = () => {};
+  const launchRazorPay = () => {
+    let options = {
+      key: "",
+      amount: price * 100,
+      currency: "INR",
+      name: "Book My Show",
+      Description: "Movie purchase or rent",
+      handler: () => {
+        setIsOpen(false);
+        alert("Payment Sucessful");
+      },
+      theme: { color: "#c4242d" },
+    };
+
+    let razorPay = window.Razorpay(options);
+    razorPay.open();
+  };
 
   return (
     <>
@@ -38,8 +54,8 @@ const Payment = ({ setIsOpen, isOpen, price }) => {
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel
-                  className="w-full max-w-md transform overflow-hidden rounded-2xl
-                                        bg-white p-6 text-left align-middle shadow-xl transition-all"
+                  className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left
+                            align-middle shadow-xl transition-all"
                 >
                   <Dialog.Title
                     as="h3"
@@ -47,6 +63,7 @@ const Payment = ({ setIsOpen, isOpen, price }) => {
                   >
                     Please Make a Payment
                   </Dialog.Title>
+
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
                       Hello Please make the Payment with the following steps

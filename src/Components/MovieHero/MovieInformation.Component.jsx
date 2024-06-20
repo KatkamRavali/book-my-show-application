@@ -23,6 +23,7 @@ const MovieInformation = () => {
     setIsOpen(true);
     setPrice(999);
   };
+
   return (
     <>
       <Payment setIsOpen={setIsOpen} isOpen={isOpen} price={price} />
