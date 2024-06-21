@@ -10,6 +10,7 @@ import DefaultHoc from "../Layouts/Default.Hoc";
 import EntertainmentCardSlider from "../Components/Entertainment/EntertainmentCard.Component";
 import HeroCarousel from "../Components/HeroCarousel/HeroCarousel.Component";
 import PosterSlider from "../Components/PosterSliders/PosterSlider.Component";
+import BannerCardSlider from "../Components/Entertainment/BannerSection.Component";
 
 const HomePage = () => {
   const [recommandedMovies, setRecommandedMovies] = useState([]);
@@ -57,6 +58,11 @@ const HomePage = () => {
     <>
       {/* ---------- HeroCarousel ---------- */}
       <HeroCarousel />
+
+      {/* ------- Banner Card ------- */}
+      <div className="container mx-auto px-4 md:px-12 my-8">
+        <BannerCardSlider />
+      </div>
 
       {/* ------- Entertainment Card ------- */}
       <div className="container mx-auto px-4 md:px-12 my-8">

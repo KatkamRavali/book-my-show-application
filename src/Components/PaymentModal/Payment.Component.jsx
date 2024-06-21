@@ -1,5 +1,5 @@
 import React from "react";
-import { Description, Dialog, Transition } from "@headlessui/react";
+import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 
 const Payment = ({ setIsOpen, isOpen, price }) => {
@@ -10,11 +10,11 @@ const Payment = ({ setIsOpen, isOpen, price }) => {
 
   const launchRazorPay = () => {
     let options = {
-      key: "",
+      key: "Key_Id",
       amount: price * 100,
       currency: "INR",
       name: "Book My Show",
-      Description: "Movie purchase or rent",
+      description: "Movie purchase or rent",
       handler: () => {
         setIsOpen(false);
         alert("Payment Sucessful");

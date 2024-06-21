@@ -14,10 +14,10 @@ const NavSm = () => {
         <div>
           <h3 className="text-xl font-bold">{movie.original_title}</h3>
         </div>
-      </div>
 
-      <div className="w-8 h-8">
-        <BiShareAlt className="w-full h-full" />
+        <div className="w-8 h-8">
+          <BiShareAlt className="w-full h-full" />
+        </div>
       </div>
     </>
   );

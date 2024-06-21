@@ -95,6 +95,36 @@ const PlayPage = () => {
                 subtitle="Action, Drama | Telugu | All age groups | 1hr 45mins"
               />
             </div>
+
+            {/* ------------ EK KAHANI SUNOGE --------- */}
+            <div className="w-1/2 md:w-1/3 lg:w-3/12 my-3 flex items-center">
+              <Poster
+                isPlay8={true}
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-U3VuLCAyMSBKdWw%3D,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00401524-feykbmflsz-portrait.jpg"
+                title="EK KAHANI SUNOGE"
+                subtitle="Drama | Hindi, English | 12yrs + | 1hr 30mins"
+              />
+            </div>
+
+            {/* ------------ Udhaar Ka Pati --------- */}
+            <div className="w-1/2 md:w-1/3 lg:w-3/12 my-3 flex items-center">
+              <Poster
+                isPlay9={true}
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-U2F0LCA2IEp1bCBvbndhcmRz,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00374436-hzdkwjspkg-portrait.jpg"
+                title="Udhaar Ka Pati"
+                subtitle="Comedy | Hindi | All age groups | 1hr 15mins"
+              />
+            </div>
+
+            {/* ------------ Marnoparant and Toba tek Singh --------- */}
+            <div className="w-1/2 md:w-1/3 lg:w-3/12 my-3 flex items-center">
+              <Poster
+                isPlay10={true}
+                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-RnJpLCAyOCBKdW4gb253YXJkcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00402026-sadzznchha-portrait.jpg"
+                title="Marnoparant and Toba tek Singh"
+                subtitle="Drama | Hindi, Hindustani | 12yrs + | 1hr"
+              />
+            </div>
           </div>
         </div>
 

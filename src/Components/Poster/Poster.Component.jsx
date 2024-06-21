@@ -298,6 +298,105 @@ const PlayPoster7 = (props) => {
   );
 };
 
+// --------- Play Poster [EK KAHANI SUNOGE] -----------
+const PlayPoster8 = (props) => {
+  return (
+    <div>
+      <a
+        href="https://in.bookmyshow.com/plays/ek-kahani-sunoge/ET00401524"
+        target="_self"
+        rel="noreferrer"
+      >
+        <div className="flex flex-col items-start gap-2 px-1 md:px-3">
+          {/* ----- Image Display ---- */}
+          <div className="w-full h-full">
+            <img
+              src={props.src}
+              alt="Poster"
+              className="w-full h-full rounded-md object-cover object-center"
+            />
+          </div>
+
+          {/* ------ Title Display ----- */}
+          <h3
+            className={`text-lg font-bold ${
+              props.isDark ? "text-white" : "text-gray-700"
+            }`}
+          >
+            {props.title}
+          </h3>
+        </div>
+      </a>
+    </div>
+  );
+};
+
+// --------- Play Poster [Udhaar Ka Pati] -----------
+const PlayPoster9 = (props) => {
+  return (
+    <div>
+      <a
+        href="https://in.bookmyshow.com/plays/marnoparant-and-toba-tek-singh/ET00402026"
+        target="_self"
+        rel="noreferrer"
+      >
+        <div className="flex flex-col items-start gap-2 px-1 md:px-3">
+          {/* ----- Image Display ---- */}
+          <div className="w-full h-full">
+            <img
+              src={props.src}
+              alt="Poster"
+              className="w-full h-full rounded-md object-cover object-center"
+            />
+          </div>
+
+          {/* ------ Title Display ----- */}
+          <h3
+            className={`text-lg font-bold ${
+              props.isDark ? "text-white" : "text-gray-700"
+            }`}
+          >
+            {props.title}
+          </h3>
+        </div>
+      </a>
+    </div>
+  );
+};
+
+// --------- Play Poster [Marnoparant and Toba tek Singh] -----------
+const PlayPoster10 = (props) => {
+  return (
+    <div>
+      <a
+        href="https://in.bookmyshow.com/plays/marnoparant-and-toba-tek-singh/ET00402026"
+        target="_self"
+        rel="noreferrer"
+      >
+        <div className="flex flex-col items-start gap-2 px-1 md:px-3">
+          {/* ----- Image Display ---- */}
+          <div className="w-full h-full">
+            <img
+              src={props.src}
+              alt="Poster"
+              className="w-full h-full rounded-md object-cover object-center"
+            />
+          </div>
+
+          {/* ------ Title Display ----- */}
+          <h3
+            className={`text-lg font-bold ${
+              props.isDark ? "text-white" : "text-gray-700"
+            }`}
+          >
+            {props.title}
+          </h3>
+        </div>
+      </a>
+    </div>
+  );
+};
+
 // ----- Poster -----
 const Poster = (props) => {
   if (props.isPlay) {
@@ -316,6 +415,12 @@ const Poster = (props) => {
     return <PlayPoster6 {...props} />;
   } else if (props.isPlay7) {
     return <PlayPoster7 {...props} />;
+  } else if (props.isPlay8) {
+    return <PlayPoster8 {...props} />;
+  } else if (props.isPlay9) {
+    return <PlayPoster9 {...props} />;
+  } else if (props.isPlay10) {
+    return <PlayPoster10 {...props} />;
   } else {
     return <MoviePoster {...props} />;
   }
